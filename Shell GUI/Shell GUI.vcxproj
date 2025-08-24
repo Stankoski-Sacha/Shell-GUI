@@ -127,15 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="commands.cpp" />
     <ClCompile Include="HandleInput.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="shell.cpp" />
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="commands.hpp" />
     <ClInclude Include="HandleInput.hpp" />
     <ClInclude Include="init.hpp" />
     <ClInclude Include="pch.hpp" />
+    <ClInclude Include="shell.hpp" />
     <ClInclude Include="TextBox.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

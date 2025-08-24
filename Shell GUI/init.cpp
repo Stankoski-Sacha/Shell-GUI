@@ -23,13 +23,14 @@ void init() {
 		exit(1);
 	}
 }
+
 SDL_Window* createWindow(std::string title, int w, int h) {
 	return SDL_CreateWindow(
 		title.c_str(), 
 		SDL_WINDOWPOS_CENTERED, 
 		SDL_WINDOWPOS_CENTERED, 
 		w, h, 
-		SDL_WINDOW_SHOWN
+		SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE
 	);
 }
 
@@ -41,5 +42,10 @@ SDL_Renderer* createRenderer(SDL_Window* win) {
 }
 
 TTF_Font* openFont(std::string font, int size) {
+    TTF_Font* fontPtr = TTF_OpenFont(font.c_str(), size);
+    if (fontPtr == nullptr) {
+        std::cerr << "Error opening font: " << TTF_GetError() << std::endl;
+    }
 
+    return fontPtr;
 }

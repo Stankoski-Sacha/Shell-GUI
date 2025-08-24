@@ -1,31 +1,28 @@
 #include "pch.hpp"
 #include "init.hpp"
+#include "HandleInput.hpp"
+#include "shell.hpp"
+
+// Declaration of WINW and WINH from pch.hpp
+int WINW = 800;
+int WINH = 600;
 
 int main(int argc, char** argv) {
+	// Testing IT WORKS
+	Parser parser;
+	Lexer lexer;
 
-	SDL_Window* win = createWindow("Shell", 400, 400);
-	SDL_Renderer* renderer = createRenderer(win);
-	SDL_Event e;
-	bool running = true;
+	std::cout << "Enter a command\n";
+	while (true) {
+		std::cout << "> ";
 
-	while (running) {
-		while (SDL_PollEvent(&e)) {
-			if (e.type == SDL_QUIT) {
-				running = false;
-			}
+		std::string line;
+		std::getline(std::cin, line);
 
-			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-			SDL_RenderClear(renderer);
-
-			SDL_RenderPresent(renderer);
-		}
+		std::vector<std::string> tokens = parser.parseWords(line);
+		lexer.setTokens(tokens);
+		lexer.readCommand();
 	}
-
-	SDL_DestroyWindow(win);
-	SDL_DestroyRenderer(renderer);
-	SDL_Quit();
-	TTF_Quit();
-	IMG_Quit();
 
 	return 0;
 }
