@@ -155,7 +155,7 @@ void ifStatement(std::vector < std::string> tokens) {
         else if (op == ">=") cond = (a >= b);
         else if (op == "<=") cond = (a <= b);
         else {
-            std::cerr << "Invalid operator: " << op << "\n";
+            std::cerr << "Invalid operator: " << op << '\n';
             return;
         }
     }
