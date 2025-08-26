@@ -30,6 +30,9 @@ void Lexer::readCommand() {
 
 	if (command == "print") return print(tokens);
 	else if (command == "eval") return eval(tokens);
+	else if (command == "clear") return clearTerminal();
+	else if (command == "exit") return shellExit(tokens);
+	else if (command == "if") return ifStatement(tokens);
 
 	else {
 		std::cout << "Error : " << command << ", is not a valid command" << std::endl;

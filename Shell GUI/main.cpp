@@ -2,7 +2,7 @@
 #include "init.hpp"
 #include "HandleInput.hpp"
 #include "shell.hpp"
-
+	
 // Declaration of WINW and WINH from pch.hpp
 int WINW = 800;
 int WINH = 600;
